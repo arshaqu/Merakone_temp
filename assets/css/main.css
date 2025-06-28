@@ -664,6 +664,9 @@ h6 {
             opacity: 1;
         }
 
+
+        
+
         .overlay-icon {
             color: white;
             font-size: 3rem;
@@ -811,6 +814,130 @@ h6 {
   /* SERVICE SECTION END */       /* SERVICE SECTION END */
 
 
+
+
+
+
+
+/* CLIENTS AND BRANDS ADD */                         /* CLIENTS AND BRANDS ADD */
+
+
+/* Optional styling for distinction */
+.brands-section {
+  background-color: #ececec;
+}
+
+.brand-card {
+  background-color: #cbcbcb;
+  padding: 25px;
+  border-radius: 0;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  filter: grayscale(100%);
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0.9);
+}
+
+.brand-card img {
+  max-height: 120px;
+  width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.brand-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  filter: grayscale(0%);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.brand-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Mobile optimization */
+@media (max-width: 576px) {
+  .brand-card {
+    padding: 15px;
+    filter: grayscale(0%) !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .brand-card:hover {
+    transform: none !important;
+    filter: none !important;
+    box-shadow: none !important;
+  }
+
+  .brand-card img {
+    max-height: 80px;
+    transform: none !important;
+  }
+
+  .brand-card:hover img {
+    transform: none !important;
+  }
+}
+
+
+
+
+/* CLIENTS AND BRANDS END */                        /* CLIENTS AND BRANDS END */
+
+
+
+
+/*  PROJECT START */
+
+.post-img {
+            position: relative;
+            overflow: hidden;
+        }
+        
+  .post-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+   
+    color: rgb(255, 255, 255) !important;
+    padding: 20px;
+    margin: 0;
+    z-index: 2;
+    font-size: 1.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+}
+
+.post-title:hover {
+   backdrop-filter: blur(8px); /* Adds blur */
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+}
+    
+        .post-img img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .post-img:hover img {
+            transform: scale(1.05);
+        }
+        
+     
+        .post-title:hover {
+            color: #c7daee;
+        }
+        
+  
+
+/* PROJECT END */
+
 .explore-animated-link {
   position: relative;
   display: inline-block;
@@ -831,7 +958,7 @@ h6 {
   left: 50%;
   transform: translateX(-50%) scaleX(0);
   width: 80%;
-  height: 2px;
+  height: 8px;
   background-color: #fff;
   transition: transform 0.3s ease;
   transform-origin: center;
@@ -856,7 +983,7 @@ h6 {
 
 .image-service-box img {
   width: 100%;
-  height: 230px; /* Fixed uniform height */
+  height: 280px; /* Fixed uniform height */
   object-fit: cover;
   border-radius: 12px;
   transition: transform 0.3s ease;
@@ -882,6 +1009,7 @@ h6 {
   .service-title {
     font-size: 1rem;
   }
+
 }
 
 
