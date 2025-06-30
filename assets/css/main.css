@@ -169,11 +169,11 @@ h6 {
 --------------------------------------------------------------*/
 .header {
   color: var(--default-color);
-  background-color: rgba(255, 255, 255, 0.1); /* white with 80% opacity */
+  background-color: rgba(255, 255, 255, 0); /* white with 80% opacity */
   padding: 10px 0;
   transition: all 0.5s;
   z-index: 997;
-  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0 18px rgba(0, 0, 0, 0);
 }
 
 
@@ -242,6 +242,67 @@ h6 {
 
 
 /* ABOUT US */
+
+.core-list {
+  display: inline-block;        /* Keeps the list block centered */
+  text-align: center;             /* Aligns text inside list items to the left */
+  max-width: 600px;             /* Optional: to control width */
+  width: 100%;
+}
+
+.core-list li {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+
+
+.core-values-section {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  position: relative;
+}
+
+.overlay {
+  
+  background: url('../img/abouus//IntegrityBann.jpg') no-repeat center center/cover;
+  padding: 40px 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.content p {
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.content ul {
+  color: white;
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.content li {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+
+
 /* Glass-like card */
 .glass-card {
   background: rgba(255, 255, 255, 0.95);
