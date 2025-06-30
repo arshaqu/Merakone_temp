@@ -50,7 +50,7 @@
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #1bbd36; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: #391bbd; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -69,11 +69,11 @@
 }
 
 .accent-background {
-  --background-color: #1bbd36;
+  --background-color: #3f8cea;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --accent-color: #ffffff;
-  --surface-color: #2ae149;
+  --surface-color: #006e12;
   --contrast-color: #ffffff;
 }
 
@@ -464,9 +464,9 @@ h6 {
   @media (max-width: 767px) {
     .service-content {
       transform: translateY(0) !important;
-      background: rgba(13, 13, 100, 0.85);
+      background: rgba(13, 13, 100, 0.3);
     }
-
+   
     .service-card img {
       transform: none !important;
     }
@@ -564,12 +564,12 @@ h6 {
 
         .section-title {
             text-align: center;
-            margin-bottom: 70px;
+            margin-bottom: 0px;
             position: relative;
             z-index: 2;
         }
 
-        .section-title h2 {
+        .section-title h2 { 
             font-size: 3.5rem;
             font-weight: 700;
             color: rgb(0, 0, 0);
@@ -959,21 +959,17 @@ h6 {
   transform: translateX(-50%) scaleX(0);
   width: 80%;
   height: 8px;
-  background-color: #fff;
   transition: transform 0.3s ease;
   transform-origin: center;
 }
 
 .explore-animated-link:hover {
   transform: translateY(-3px);
-  color: #000000;
+  color: #b8b8b8;
 
   box-shadow: 0 8px 20px rgba(255, 254, 254, 0.4);
 }
 
-.explore-animated-link:hover::after {
-  transform: translateX(-50%) scaleX(1);
-}
 
 
 .image-service-box {
@@ -996,7 +992,8 @@ h6 {
 
 .service-title {
   margin-top: 15px;
-  font-size: 1.1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
   color: #222;
 }
 
@@ -1602,7 +1599,6 @@ section,
     min-height: calc(100vh - 48px);
   }
 }
-
 .hero img {
   position: absolute;
   inset: 0;
@@ -1620,22 +1616,53 @@ section,
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
+  margin-top: -500px;
   justify-content: center;
   align-items: flex-end;
 }
 
 .hero .container {
-  background: color-mix(in srgb, var(--surface-color), transparent 80%);
   position: relative;
   text-align: center;
-  padding-top: 30px;
-  padding-bottom: 70px;
+  padding: 30px 20px;
+  margin-top: -200px !important;
   margin-bottom: 150px;
-  border-top: 1px solid white;
-
-   border-left: 2px solid white;
+  border-top: 1px solid rgba(224, 155, 19, 0.6);
+  border-left: 2px solid rgba(224, 155, 19, 0.6);
   z-index: 3;
+
+  /* Updated highlight style without blur */
+  background: rgba(0, 0, 0, 0.6); /* Strong translucent dark background */
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6); /* Strong outer shadow */
+  color: #fff;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.4s ease;
 }
+
+.hero .container:hover {
+  background: rgba(0, 0, 0, 0.75);
+  transform: scale(1.01);
+  box-shadow: 0 10px 40px rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Enhanced text readability */
+.hero .container h1,
+.hero .container h2 {
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero .container p {
+  color: #ddd;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+
 
 @media (max-width: 1200px) {
   .hero .container {
@@ -1646,7 +1673,7 @@ section,
 
 .hero h2 {
   margin-bottom: 20px;
-  font-size: 36px;
+  font-size: 46px;
   font-weight: 700;
 }
 
@@ -1873,8 +1900,13 @@ section,
   }
 }
 
+.outstory_p {
+  text-align: justify;
+  text-justify: inter-word; /* Improves word spacing */
+}
+
 .about .our-story {
-  margin-top: 20px !important;
+  
   padding: 40px;
   letter-spacing: 0px;
   background-color: color-mix(in srgb, var(--default-color), transparent 92%);
@@ -1885,6 +1917,14 @@ section,
     padding-right: 35%;
   }
 }
+
+
+@media (max-width: 575px) {
+ .our-story { 
+  margin-top: -95px !important;
+}
+}
+
 
 .about .our-story h4 {
   text-transform: uppercase;
@@ -1960,7 +2000,7 @@ section,
   inset: 0;
   display: block;
   width: 100%;
-  height: 100%;
+  height: 80%;
   object-fit: cover;
   object-position: center;
   z-index: 1;
