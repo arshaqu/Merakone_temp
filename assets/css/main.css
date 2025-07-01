@@ -2098,14 +2098,31 @@ section,
 }
 
 .outstory_p {
+  font-size: 1.05rem;
+  line-height: 1.8;
   text-align: justify;
-  text-justify: inter-word; /* Improves word spacing */
+  text-justify: inter-word;
+  max-width: 850px;
+  margin: 0 auto;
+  color: #000000;
+  word-spacing: normal;
+  letter-spacing: normal;
+  hyphens: auto;              /* Helps break longer words */
 }
+
+
+@media (max-width: 768px) {
+  .outstory_p {
+    text-align: left;        /* Better for small screens */
+    hyphens: none;
+  }
+}
+
+
 
 .about .our-story {
   
   padding: 40px;
-  letter-spacing: 0px;
   background-color: color-mix(in srgb, var(--default-color), transparent 92%);
 }
 
