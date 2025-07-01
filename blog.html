@@ -42,13 +42,35 @@
       </a>
 
       <nav id="navmenu" class="navmenu">
+
+        <script>
+  let lastScrollTop = 0;
+  const header = document.getElementById("header");
+
+  window.addEventListener("scroll", function () {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+      // Scrolling down
+      header.classList.add("hide-header");
+    } else {
+      // Scrolling up
+      header.classList.remove("hide-header");
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile or negative scrolling
+  });
+</script>
+
+
+
         <ul>
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/about/about.html">About us </a></li>
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/clients.html">CLients</a></li>
-          <li><a class="active" href="/blog.html">PROJECTS</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/index.html">HOME</a></li>
+          <li><a href="/about/about.html">ABOUT US </a></li>
+          <li><a href="/services.html">SERVICES</a></li>
+          <li><a href="/clients.html">CLIENTS</a></li>
+          <li class=""><a href="/blog.html" class="active"><span>PROJECTS</span> <i class="bi  "></i></a>
+          <li><a href="/contact.html">CONTACT</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -411,7 +433,7 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Company</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">MerkOne</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->

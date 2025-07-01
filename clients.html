@@ -48,15 +48,33 @@
       </a>
 
       <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/about/about.html">ABOUT</a></li>
-          
-          </li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="clients.html" class="active">clients</a></li>
-          <li><a href="blog.html">PROJECTS</a></li>
-          <li><a href="contact.html">Contact</a></li>
+        
+        <script>
+  let lastScrollTop = 0;
+  const header = document.getElementById("header");
+
+  window.addEventListener("scroll", function () {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+      // Scrolling down
+      header.classList.add("hide-header");
+    } else {
+      // Scrolling up
+      header.classList.remove("hide-header");
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile or negative scrolling
+  });
+</script>
+
+         <ul>
+          <li><a href="/index.html">HOME</a></li>
+          <li><a href="/about/about.html">ABOUT US </a></li>
+          <li><a href="/services.html">SERVICES</a></li>
+          <li class=""><a href="/clients.html" class="active"><span>CLIENTS</span> <i class="bi  "></i></a>
+          <li><a href="/blog.html">PROJECTS</a></li>
+          <li><a href="/contact.html">CONTACT</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -320,17 +338,17 @@
 
   </main>
 
- <footer id="footer" class="footer dark-background">
+<footer id="footer" class="footer dark-background p-4">
 
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-            <a href="/home" class="logo d-flex align-items-center me-auto">
+            <a class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="/assets/img/logo.png" alt=""> -->
         <img src="/assets//img/favicon.png" alt="Merak One" class="sitename" />
       </a>
-          <div class="footer-contact pt-3">
+          <div style="letter-spacing: 1px;" class="footer-contact pt-3 montserrat">
             <p><span style="font-weight: bold;">Head Office :</span> PB NO: 12629,<br/> Mujahid Street, Riyadh, Saudi Arabia</p>
             <p><span style="font-weight: bold;" class="">Regional Office :</span> Bahrain,<br/> KCity, Manama, Bahrain</p>
             <p class=""><strong>Phone :</strong> <span>00966545059009</span></p>
@@ -346,15 +364,16 @@
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
+        <div style="letter-spacing: 1px;" class="col-lg-2 col-md-3 footer-links montserrat">
           <h4>Useful Links</h4>
-          <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/about/about.html">About us</a></li>
-            <li><a href="/services.html">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
+            <ul>
+          <li><a class="active" href="/index.html">HOME</a></li>
+          <li><a href="/about/about.html">ABOUT US </a></li>
+          <li><a href="/services.html">SERVICES</a></li>
+          <li><a href="/clients.html">CLIENTS</a></li>
+          <li><a class="active" href="/blog.html">PROJECTS</a></li>
+          <li><a href="/contact.html">CONTACT</a></li>
+        </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
@@ -382,7 +401,7 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Company</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">MerakOne</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->

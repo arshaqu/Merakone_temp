@@ -52,15 +52,47 @@
       </a>
 
       <nav  id="navmenu" class="navmenu">
+        <style>
+  .navmenu a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .navmenu a:hover {
+    color: #000000;
+  }
+
+  @media (max-width: 768px) {
+ .navmenu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navmenu a {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(254, 254, 254, 0.1);
+    color: #010101;
+    padding: 15px !important;
+  }
+
+  .navmenu a:hover {
+    color: #FFD700; /* Optional highlight color on mobile */
+  }
+}
+</style>
+
         <ul >
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a   href="/about/about.html">About us </a>
+          <li class=""><a href="/index.html" class="active"><span>HOME</span> <i class="bi  "></i></a>
+          <li><a  href="/about/about.html">ABOUT US </a>
            
           </li>
-          <li><a  href="/services.html">Services</a></li>
-          <li><a  href="/clients.html">CLients</a></li>
-          <li><a  href="/blog.html">Projects</a></li>
-          <li><a  href="/contact.html">Contact</a></li>
+          <li><a href="/services.html">SERVICE</a></li>
+          <li><a href="/clients.html">CLIENTS</a></li>
+          <li><a href="/blog.html">PROJECTS</a></li>
+          <li><a href="/contact.html">CONTACT US</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -74,6 +106,25 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
+
+      <script>
+  let lastScrollTop = 0;
+  const header = document.getElementById("header");
+
+  window.addEventListener("scroll", function () {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+      // Scrolling down
+      header.classList.add("hide-header");
+    } else {
+      // Scrolling up
+      header.classList.remove("hide-header");
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile or negative scrolling
+  });
+</script>
 
       <div style="margin-top: -78px;  height: 100vh;" id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
@@ -146,7 +197,7 @@ our craftsmanship</h2>
         <h2>ABOUT US</h2>
 
       </div>
-            <div class="our-story montserrat">
+            <div style="border-radius: 10px;" class="our-story montserrat">
              
               <h3 class="montserrat ">Our Story</h3>
               <p class="mt-2 outstory_p">At MerakOne, we transform visions into reality through exceptional interior fit-out solutions across Saudi Arabia and Bahrain. Specializing in Luxury Retail, Retail, Food and Beverages, Commercial Workplaces, and Residential sectors, we deliver bespoke interiors that blend aesthetics, functionality, and innovation. Our commitment to quality and precision ensures every project reflects our clients’ unique aspirations while meeting the highest industry standards.</p>
@@ -170,67 +221,56 @@ our craftsmanship</h2>
         Explore More <span class="arrow-up">↑</span>
       </a>
     </div>
-<!-- Services Section -->
-<section id="services" class="services section light-background">
-  <div class="container">
-    <div class="row gy-4 justify-content-center">
 
-     <div class="container section-title" data-aos="fade-up">
-  <h2 style="text-align: center;">SERVICES</h2>
 
-  <p class="montserrat" 
-  style="  font-family: 'Montserrat', sans-serif;
-    max-width: 1000px;
-    font-size: 16px;
-    margin: 0 auto;
-    text-align: justify;
-    ">
-    At MerakOne Interiors, we specialize in delivering top-quality interior solutions tailored to meet the unique needs of our clients. From conceptualization to execution, we ensure seamless and innovative solutions across various industries.
-  </p>
-  
-</div><!-- End Section Title -->
+    <section style="padding: 60px 20px; background-color: #f5f5f5; font-family: 'Montserrat', sans-serif;">
+  <div style="max-width: 1400px; margin: auto; text-align: center;">
+    <h2 style="font-size: 32px; font-weight: bold; margin-bottom: 20px; color: #222;">Our Services</h2>
+    <p class="montserrat" style="max-width: 800px; margin: 0 auto 40px; font-size: 15px; line-height: 1.6; color: #555;">
+      Discover elegant, practical interior solutions crafted for modern living and tailored to your vision.
+    </p>
 
-      <!-- Service 1 -->
-      <div class="col-lg-3 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="100">
-        <div class="image-service-box text-center">
-          <img src="/assets/img/service/service3.jpg" alt="Turnkey Fit-Out Solutions" class="img-fluid rounded shadow-sm">
-          <h4 class="service-title montserrat">Turnkey Fit-Out Solutions</h4>
+    <div class="home-service-grid">
+      <!-- Card 1 -->
+      <div class="home-service-card">
+        <img src="/assets/img/service/service3.jpg" alt="Turnkey Fit-Out">
+        <div class="overlay">
+          <h3 class="montserrat">TURNKEY FIT-OUT</h3>
         </div>
       </div>
 
-      <!-- Service 2 -->
-      <div class="col-lg-3 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="200">
-        <div class="image-service-box text-center">
-          <img src="/assets/img/service/service4.jpg" alt="Custom Furniture and Fit-Out Solutions" class="img-fluid rounded shadow-sm">
-          <h4 class="service-title montserrat">Custom Furniture and Fit-Out Solutions</h4>
+      <!-- Card 2 -->
+      <div class="home-service-card">
+        <img src="/assets/img/service/service4.jpg" alt="Custom Furniture">
+        <div class="overlay">
+          <h3 class="montserrat">CUSTOM FURNITURE</h3>
         </div>
       </div>
 
-      <!-- Service 3 -->
-      <div class="col-lg-3 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="300">
-        <div class="image-service-box text-center">
-          <img src="/assets/img/service/service2.jpg" alt="Office Design & Build" class="img-fluid rounded shadow-sm">
-          <h4 class="service-title">Office Design & Build</h4>
+      <!-- Card 3 -->
+      <div class="home-service-card">
+        <img src="/assets/img/service/service2.jpg" alt="Office Design">
+        <div class="overlay">
+          <h3 class="montserrat">OFFICE DESIGN</h3>
         </div>
       </div>
 
-      <!-- Service 4 -->
-      <div class="col-lg-3 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="400">
-        <div class="image-service-box text-center">
-          <img src="/assets/img/service/service1.png" alt="Post-Opening Support" class="img-fluid rounded shadow-sm">
-          <h4 class="service-title">Post-Opening Support</h4>
+      <!-- Card 4 -->
+      <div class="home-service-card">
+        <img src="/assets/img/service/service1.png" alt="Post Support">
+        <div class="overlay">
+          <h3 class="montserrat">POST-OPENING SUPPORT</h3>
         </div>
       </div>
-
     </div>
-  </div>
 
-   <div class="button-container">
-  <a href="/services.html" class="btn-get-started montserrat">EXPLORE MORE</a>
+       <div class="button-container p-5">
+  <a style="border-radius: 10px;" href="/services.html" class="btn-get-started montserrat ">EXPLORE MORE</a>
 </div>
-
-
+  </div>
 </section>
+
+
 
 
 
@@ -258,7 +298,7 @@ our craftsmanship</h2>
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+            <div  class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <img src="/assets/img/masonry-portfolio/Project4.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>PAUL LE CAFE</h4>
@@ -388,7 +428,7 @@ our craftsmanship</h2>
       </section><!-- /Portfolio Section -->
     </div>
     <div class="button-container">
-  <a href="/blog.html" class="btn-get-started montserrat">EXPLORE MORE</a>
+  <a style="border-radius: 10px;" href="/blog.html" class="btn-get-started montserrat ">EXPLORE MORE</a>
 </div>
       
     <!-- Clients Section -->
@@ -476,7 +516,7 @@ our craftsmanship</h2>
 </div>
 
 
-<div class="explore-underline montserrat text-center">
+<div style="border-radius: 10px;" class="explore-underline montserrat text-center">
   <a href="/clients.html" class="explore-animated-link">Explore More</a>
 </div>
 
@@ -487,17 +527,17 @@ our craftsmanship</h2>
 
   </main>
 
-  <footer id="footer" class="footer dark-background">
+  <footer id="footer" class="footer dark-background p-4">
 
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-            <a href="/home" class="logo d-flex align-items-center me-auto">
+            <a class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="/assets/img/logo.png" alt=""> -->
         <img src="/assets//img/favicon.png" alt="Merak One" class="sitename" />
       </a>
-          <div class="footer-contact pt-3">
+          <div style="letter-spacing: 1px;" class="footer-contact pt-3 montserrat">
             <p><span style="font-weight: bold;">Head Office :</span> PB NO: 12629,<br/> Mujahid Street, Riyadh, Saudi Arabia</p>
             <p><span style="font-weight: bold;" class="">Regional Office :</span> Bahrain,<br/> KCity, Manama, Bahrain</p>
             <p class=""><strong>Phone :</strong> <span>00966545059009</span></p>
@@ -513,15 +553,16 @@ our craftsmanship</h2>
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
+        <div style="letter-spacing: 1px;" class="col-lg-2 col-md-3 footer-links montserrat">
           <h4>Useful Links</h4>
-          <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/about/about.html">About us</a></li>
-            <li><a href="/services.html">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
+            <ul>
+          <li><a class="active" href="/index.html">HOME</a></li>
+          <li><a href="/about/about.html">ABOUT US </a></li>
+          <li><a href="/services.html">SERVICES</a></li>
+          <li><a href="/clients.html">CLIENTS</a></li>
+          <li><a class="active" href="/blog.html">PROJECTS</a></li>
+          <li><a href="/contact.html">CONTACT</a></li>
+        </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
@@ -549,7 +590,7 @@ our craftsmanship</h2>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Company</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">MerakOne</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
@@ -576,6 +617,11 @@ our craftsmanship</h2>
   <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 
   <!-- Main JS File -->
   <script src="/assets/js/main.js"></script>
