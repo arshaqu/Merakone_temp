@@ -50,22 +50,24 @@
 
       <nav id="navmenu" class="navmenu">
 
-        <script>
+       <script>
   let lastScrollTop = 0;
   const header = document.getElementById("header");
 
   window.addEventListener("scroll", function () {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (currentScroll > lastScrollTop) {
-      // Scrolling down
+    if (currentScroll > lastScrollTop && currentScroll > 100) {
+      // Scrolling down – hide header
       header.classList.add("hide-header");
-    } else {
-      // Scrolling up
+      header.classList.remove("header-blur");
+    } else if (currentScroll < lastScrollTop) {
+      // Scrolling up – show header with black background
       header.classList.remove("hide-header");
+      header.classList.add("header-blur");
     }
 
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile or negative scrolling
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
 </script>
 
@@ -111,7 +113,7 @@
 
   <!-- Card 2 -->
   <div class="service-card">
-    <img src="/assets/img/abouus//Image2.png" alt="Furniture Production">
+    <img src="/assets/img/abouus/Image2.png" alt="Furniture Production">
     <div class="service-content">
       <div style="color: white; font-size: xx-large;" class="service-title ">FURNITURE AND FITTINGS PRODUCTION</div>
       <div class="service-description montserrat p-2">
@@ -162,109 +164,106 @@
             <div class="floating-circle"></div>
         </div>
         
-        <div class="container">
-           <div class="section-title" style="color: white;">
-       <h2 style="color: white !important;" class="">What We Do..?</h2>
-   <p class="montserrat" style="font-family: 'Montserrat', sans-serif; max-width: 600px; font-size: 16px; line-height: 1.6; margin: 0 auto; text-align: center; color: white;">
-     We transform spaces into stunning, functional environments with expertise in;</p>
+      <div class="container">
+  <div class="section-title" style="color: white;">
+    <h2 style="color: white !important;">What We Do..?</h2>
+    <p class="montserrat" style="font-family: 'Montserrat', sans-serif; max-width: 600px; font-size: 16px; line-height: 1.6; margin: 0 auto; text-align: center; color: white;">
+      We transform spaces into stunning, functional environments with expertise in;
+    </p>
   </div>
 
-            
-            <div class="row g-4">
-                <!-- Card 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="modern-feature-card stagger-animation">
-                        <div class="card-number">01</div>
-                        <div class="card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Luxury Retail">
-                            <div class="card-overlay">
-                                <i class="fas fa-gem overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h5>Luxury Retail</h5>
-                            <p class="montserrat">High-end store interiors that enhance brand experience and create memorable customer journeys.</p>
-                           
-                             
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="modern-feature-card stagger-animation">
-                        <div class="card-number">02</div>
-                        <div class="card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="F&B">
-                            <div class="card-overlay">
-                                <i class="fas fa-utensils overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h5>Food & Beverage</h5>
-                            <p class="montserrat">Customized interiors for cafes, restaurants, and lounges that create the perfect dining atmosphere.</p>
-                            
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="modern-feature-card stagger-animation">
-                        <div class="card-number">03</div>
-                        <div class="card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Workplace">
-                            <div class="card-overlay">
-                                <i class="fas fa-building overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h5>Commercial Workplace</h5>
-                            <p class="montserrat">Office designs that boost productivity and collaboration while reflecting your company culture.</p>
-                            
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="modern-feature-card stagger-animation">
-                        <div class="card-number">04</div>
-                        <div class="card-image-wrapper">
-                            <img src="/assets//img//abouus/Asset4.png" alt="Retail">
-                            <div class="card-overlay">
-                                <i class="fas fa-store overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h5>Retail Spaces</h5>
-                            <p class="montserrat">Stylish fit-outs for seamless customer interaction and enhanced shopping experiences.</p>
-                          
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="modern-feature-card stagger-animation">
-                        <div class="card-number">05</div>
-                        <div class="card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80" alt="Residential">
-                            <div class="card-overlay">
-                                <i class="fas fa-home overlay-icon"></i>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h5>Residential Spaces</h5>
-                            <p class="montserrat">Interiors that reflect comfort and elegance, creating the perfect sanctuary for modern living.</p>
-                         
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- First Row with 3 Cards -->
+  <div class="row g-4">
+    <!-- Card 1 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="modern-feature-card stagger-animation">
+        <div class="card-number">01</div>
+        <div class="card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Luxury Retail">
+          <div class="card-overlay">
+            <i class="fas fa-gem overlay-icon"></i>
+          </div>
         </div>
+        <div class="card-content">
+          <h5>Luxury Retail</h5>
+          <p class="montserrat">High-end store interiors that enhance brand experience and create memorable customer journeys.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="modern-feature-card stagger-animation">
+        <div class="card-number">02</div>
+        <div class="card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="F&B">
+          <div class="card-overlay">
+            <i class="fas fa-utensils overlay-icon"></i>
+          </div>
+        </div>
+        <div class="card-content">
+          <h5>Food & Beverage</h5>
+          <p class="montserrat">Customized interiors for cafes, restaurants, and lounges that create the perfect dining atmosphere.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="modern-feature-card stagger-animation">
+        <div class="card-number">03</div>
+        <div class="card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Workplace">
+          <div class="card-overlay">
+            <i class="fas fa-building overlay-icon"></i>
+          </div>
+        </div>
+        <div class="card-content">
+          <h5>Commercial Workplace</h5>
+          <p class="montserrat">Office designs that boost productivity and collaboration while reflecting your company culture.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Row with 2 Centered Cards -->
+  <div class="row g-4 justify-content-center mt-2">
+    <!-- Card 4 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="modern-feature-card stagger-animation">
+        <div class="card-number">04</div>
+        <div class="card-image-wrapper">
+          <img src="/assets/img/abouus/Asset4.png" alt="Retail">
+          <div class="card-overlay">
+            <i class="fas fa-store overlay-icon"></i>
+          </div>
+        </div>
+        <div class="card-content">
+          <h5>Retail Spaces</h5>
+          <p class="montserrat">Stylish fit-outs for seamless customer interaction and enhanced shopping experiences.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="col-md-6 col-lg-4 ">
+      <div class="modern-feature-card stagger-animation">
+        <div class="card-number">05</div>
+        <div class="card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80" alt="Residential">
+          <div class="card-overlay">
+            <i class="fas fa-home overlay-icon"></i>
+          </div>
+        </div>
+        <div class="card-content">
+          <h5>Residential Spaces</h5>
+          <p class="montserrat">Interiors that reflect comfort and elegance, creating the perfect sanctuary for modern living.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
     </section>
 
 

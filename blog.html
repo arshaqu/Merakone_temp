@@ -28,6 +28,31 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.image-hover-slider').forEach(item => {
+      const imgElement = item.querySelector('.main-img');
+      const images = JSON.parse(item.getAttribute('data-images'));
+      let index = 0;
+      let interval;
+
+      item.addEventListener('mouseenter', () => {
+        interval = setInterval(() => {
+          index = (index + 1) % images.length;
+          imgElement.src = images[index];
+        }, 1000);
+      });
+
+      item.addEventListener('mouseleave', () => {
+        clearInterval(interval);
+        index = 0;
+        imgElement.src = images[0];
+      });
+    });
+  });
+</script>
+
 </head>
 
 <body class="blog-page">
@@ -43,22 +68,24 @@
 
       <nav id="navmenu" class="navmenu">
 
-        <script>
+      <script>
   let lastScrollTop = 0;
   const header = document.getElementById("header");
 
   window.addEventListener("scroll", function () {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (currentScroll > lastScrollTop) {
-      // Scrolling down
+    if (currentScroll > lastScrollTop && currentScroll > 100) {
+      // Scrolling down – hide header
       header.classList.add("hide-header");
-    } else {
-      // Scrolling up
+      header.classList.remove("header-blur");
+    } else if (currentScroll < lastScrollTop) {
+      // Scrolling up – show header with black background
       header.classList.remove("hide-header");
+      header.classList.add("header-blur");
     }
 
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile or negative scrolling
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
 </script>
 
@@ -82,7 +109,7 @@
 
 
     <!-- Blog Posts Section -->
-    <section id="portfolio" class="portfolio section">
+   <section id="portfolio" class="portfolio section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -99,267 +126,361 @@
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
             <!-- Portfolio Item 1 -->
-            <div style="cursor: pointer;" class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="/assets/img/masonry-portfolio/Img3.JPG" class="img-fluid" alt="">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/RayBan1.jpeg", "/assets/img/masonry-portfolio/RayBan2.jpeg", "/assets/img/masonry-portfolio/RayBan3.jpeg"]'>
+              
+              <img src="/assets/img/masonry-portfolio/RayBan1.jpeg" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
+                <h4>SUN GLASS HUT</h4>
+                <p>ANDALUS MALL, JEDDAH</p>
+                <a href="/assets/img/masonry-portfolio/RayBan1.jpeg" data-gallery="gallery-RayBan" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/RayBan2.jpeg" data-gallery="gallery-RayBan" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/RayBan3.jpeg" data-gallery="gallery-RayBan" class="glightbox d-none"></a>
+              </div>
+            </div>
+
+            <!-- Portfolio Item 2 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/Intimissmi.JPG", "/assets/img/masonry-portfolio/Intimissimi2.JPG", "/assets/img/masonry-portfolio/Intimissimi3.JPG"]'>
+              
+              <img src="/assets/img/masonry-portfolio/Intimissmi.JPG" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
+                <h4>INTIMISSMI</h4>
+                <p>PANORAMA MALL RIYADH</p>
+                <a href="/assets/img/masonry-portfolio/Intimissmi.JPG" data-gallery="gallery-intimissimi" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/Intimissimi2.JPG" data-gallery="gallery-intimissimi" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/Intimissimi3.JPG" data-gallery="gallery-intimissimi" class="glightbox d-none"></a>
+              </div>
+            </div>
+
+            <!-- Portfolio Item 3 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/Reserved1.JPG", "/assets/img/masonry-portfolio/Reserved2.JPG", "/assets/img/masonry-portfolio/Reserved3.JPG"]'>
+              
+              <img src="/assets/img/masonry-portfolio/Reserved1.JPG" class="img-fluid main-img fade-img" alt="">
+
               <div class="portfolio-info" style="cursor: pointer;">
                 <h4>RESERVED</h4>
                 <p>GALLERY MALL, RIYADH</p>
-                <a href="/assets/img/masonry-portfolio/Img3.JPG" 
-                  data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
+                <a href="/assets/img/masonry-portfolio/Reserved1.JPG" data-gallery="gallery-reserved" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/Reserved2.JPG" data-gallery="gallery-reserved" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/Reserved3.JPG" data-gallery="gallery-reserved" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
-
-            <!-- Portfolio Item 2 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product" style="cursor: pointer;">
-              <img src="/assets/img/masonry-portfolio/sunglass.jpeg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>SUN GLASS HUT</h4>
-                <p>ANDALUS MALL, JEDDAH</p>
-                <a href="/assets/img/masonry-portfolio/sunglass.jpeg"
-                  data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <!-- Portfolio Item 3 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding" style="cursor: pointer;">
-              <img src="/assets/img/masonry-portfolio/Image3.jpeg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>DAISO JAPAN</h4>
-                <p>SALAM MALL, JEDDAH</p>
-                <a href="/assets/img/masonry-portfolio/Image3.jpeg" 
-                  data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
             <!-- Portfolio Item 4 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app" style="cursor: pointer;">
-              <img src="/assets/img/masonry-portfolio/Intimissmi.JPG" class="img-fluid" alt="INTIMISSMI">
-              <div class="portfolio-info">
-                <h4>INTIMISSMI</h4>
-                <p>PANORAMA MALL RIYADH</p>
-                <a href="/assets/img/masonry-portfolio/Intimissmi.JPG" 
-                  data-gallery="portfolio-gallery-app" class="glightbox preview-link">
-                  <i class="bi bi-zoom-in"></i>
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/DaisoJap1.jpg", "/assets/img/masonry-portfolio/DaisoJap2.jpg", "/assets/img/masonry-portfolio/DaisoJap3.jpg"]'>
+              
+              <img src="/assets/img/masonry-portfolio/DaisoJap1.jpg" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
+                <h4>DAISO JAPAN</h4>
+                <p>SALAM MALL, JEDDAH</p>
+                <a href="/assets/img/masonry-portfolio/DaisoJap1.jpg" data-gallery="gallery-DaisoJapan" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
                 </a>
-                <a title="More Details" class="details-link">
-                  <i class="bi bi-link-45deg"></i>
-                </a>
+                <a href="/assets/img/masonry-portfolio/DaisoJap2.jpg" data-gallery="gallery-DaisoJapan" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/DaisoJap3.jpg" data-gallery="gallery-DaisoJapan" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
             <!-- Portfolio Item 5 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app" style="cursor: pointer;">
-              <img src="/assets/img/masonry-portfolio/AlhussainiLavanda.jpeg" class="img-fluid" alt="AL HUSSAINI">
-              <div class="portfolio-info">
-                <h4>AL HUSSAINI</h4>
-                <p>LAVANDA PARK ABHA</p>
-                <a href="/assets/img/masonry-portfolio/AlhussainiLavanda.jpeg" 
-                  data-gallery="portfolio-gallery-app" class="glightbox preview-link">
-                  <i class="bi bi-zoom-in"></i>
-                </a>
-              </div>
-            </div><!-- End Portfolio Item -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/Jaw1.jpeg", "/assets/img/masonry-portfolio/Jaw2.jpg", "/assets/img/masonry-portfolio/Jaw3.jpeg"]'>
+              
+              <img src="/assets/img/masonry-portfolio/Jaw1.jpeg" class="img-fluid main-img fade-img" alt="">
 
-            <!-- Portfolio Item 6 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app" style="cursor: pointer;">
-              <img src="/assets/img/masonry-portfolio/Deichmann.jpg" class="img-fluid" alt="DEICHMANN">
-              <div class="portfolio-info">
-                <h4>DEICHMANN</h4>
-                <p>THE VILLAGE MALL</p>
-                <a href="/assets/img/masonry-portfolio/Deichmann.jpg"
-                  data-gallery="portfolio-gallery-app" class="glightbox preview-link">
-                  <i class="bi bi-zoom-in"></i>
-                </a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <!-- Portfolio Item 7 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app" style="cursor: pointer;">
-              <img src="/assets/img/masonry-portfolio/DaisoAziz.jpg" class="img-fluid" alt="DAISO JAPAN">
-              <div class="portfolio-info">
-                <h4>DAISO JAPAN</h4>
-                <p>AZIZ MALL</p>
-                <a href="/assets/img/masonry-portfolio/DaisoAziz.jpg" 
-                  data-gallery="portfolio-gallery-app" class="glightbox preview-link">
-                  <i class="bi bi-zoom-in"></i>
-                </a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <!-- Portfolio Item 8 -->
-            <div style="cursor: pointer;" class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="/assets/img/masonry-portfolio/Jaw2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
+              <div class="portfolio-info" style="cursor: pointer;">
                 <h4>JAWAHARA</h4>
                 <p>JEWELLERY PARK AVENUE PARK</p>
-                <a href="/assets/img/masonry-portfolio/Jaw2.jpg" 
-                  data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
+                <a href="/assets/img/masonry-portfolio/Jaw1.jpeg" data-gallery="gallery-Jawahara" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/Jaw2.jpg" data-gallery="gallery-Jawahara" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/Jaw3.jpeg" data-gallery="gallery-Jawahara" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
+
+            <!-- Portfolio Item 6 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/AlhussainiLavanda.jpeg", "/assets/img/masonry-portfolio/Alhussaini2.jpeg", "/assets/img/masonry-portfolio/Alhussaini3.png"]'>
+              
+              <img src="/assets/img/masonry-portfolio/AlhussainiLavanda.jpeg" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
+                <h4>AL HUSSAINI</h4>
+                <p>LAVANDA PARK ABHA</p>
+                <a href="/assets/img/masonry-portfolio/AlhussainiLavanda.jpeg" data-gallery="gallery-AlhussainiLavanda" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/Alhussaini2.jpeg" data-gallery="gallery-AlhussainiLavanda" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/Alhussaini3.png" data-gallery="gallery-AlhussainiLavanda" class="glightbox d-none"></a>
+              </div>
+            </div>
+
+            <!-- Portfolio Item 7 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/Deichmann1.jpg", "/assets/img/masonry-portfolio/Deichmann2.jpg", "/assets/img/masonry-portfolio/Deichmann3.jpg"]'>
+              
+              <img src="/assets/img/masonry-portfolio/Deichmann1.jpg" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
+                <h4>DEICHMANN</h4>
+                <p>THE VILLAGE MALL</p>
+                <a href="/assets/img/masonry-portfolio/Deichmann1.jpg" data-gallery="gallery-Deichmann" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/Deichmann2.jpg" data-gallery="gallery-Deichmann" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/Deichmann3.jpg" data-gallery="gallery-Deichmann" class="glightbox d-none"></a>
+              </div>
+            </div>
+
+            <!-- Portfolio Item 8 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/DaisoAziz1.jpg", "/assets/img/masonry-portfolio/DaisoAziz2.jpg", "/assets/img/masonry-portfolio/DaisoAziz.jpg"]'>
+              
+              <img src="/assets/img/masonry-portfolio/DaisoAziz1.jpg" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
+                <h4>DAISO JAPAN</h4>
+                <p>AZIZ MALL</p>
+                <a href="/assets/img/masonry-portfolio/DaisoAziz1.jpg" data-gallery="gallery-DaizoAziz" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/DaisoAziz2.jpg" data-gallery="gallery-DaizoAziz" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/DaisoAziz.jpg" data-gallery="gallery-DaizoAziz" class="glightbox d-none"></a>
+              </div>
+            </div>
 
             <!-- Portfolio Item 9 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product" style="cursor: pointer;">
-              <img src="/assets/img/masonry-portfolio/Image4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>CALZEDONIA</h4>
-                <p>THE VILLAGE MALL</p>
-                <a href="/assets/img/masonry-portfolio/Image4.jpg" 
-                  data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/Veromoda1.JPG", "/assets/img/masonry-portfolio/Veromoda2.JPG", "/assets/img/masonry-portfolio/Veromoda3.jpeg"]'>
+              
+              <img src="/assets/img/masonry-portfolio/IMG9.JPG" class="img-fluid main-img fade-img" alt="">
 
-            <!-- Portfolio Item 10 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product" style="cursor: pointer;">
-              <img src="/assets/img/masonry-portfolio/IMG9.JPG" class="img-fluid" alt="">
-              <div class="portfolio-info">
+              <div class="portfolio-info" style="cursor: pointer;">
                 <h4>VEROMODA</h4>
                 <p>AL NAKHEEL MALL, RIYADH</p>
-                <a href="/assets/img/masonry-portfolio/IMG9.JPG" 
-                  data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="/assets/img/masonry-portfolio/Veromoda1.JPG" data-gallery="gallery-veromoda" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/Veromoda2.JPG" data-gallery="gallery-veromoda" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/Veromoda3.jpeg" data-gallery="gallery-veromoda" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
-            <!-- Portfolio Item 11 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app" style="cursor: pointer;">
-              <img src="/assets/img/masonry-portfolio/Paul5.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
+            <!-- Portfolio Item 10 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/Paul5.png", "/assets/img/masonry-portfolio/Paulcaf2.png", "/assets/img/masonry-portfolio/Paulcaf3.png"]'>
+              
+              <img src="/assets/img/masonry-portfolio/Paul5.png" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
                 <h4>PAUL LE CAFE</h4>
                 <p>RIYADH GALLERY MALL</p>
-                <a href="/assets/img/masonry-portfolio/Paul5.png" 
-                  data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
+                <a href="/assets/img/masonry-portfolio/Paulcaf2.png" data-gallery="gallery-paul" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/Paulcaf3.png" data-gallery="gallery-paul" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/Paul5.png" data-gallery="gallery-paul" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
-            <!-- Portfolio Item 12 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding" style="cursor: pointer;">
-              <img src="/assets/img/masonry-portfolio/Img1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
+            <!-- Portfolio Item 11 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/KikoRedsea1.jpg", "/assets/img/masonry-portfolio/KikoRedsea2.jpg", "/assets/img/masonry-portfolio/KikoRedsea3.jpg"]'>
+              
+              <img src="/assets/img/masonry-portfolio/KikoRedsea1.jpg" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
                 <h4>KIKO MILANO</h4>
                 <p>RED SEA MALL, JEDDAH</p>
-                <a href="/assets/img/masonry-portfolio/Img1.jpg" 
-                  data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
+                <a href="/assets/img/masonry-portfolio/KikoRedsea2.jpg" data-gallery="gallery-kiko-red" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/KikoRedsea3.jpg" data-gallery="gallery-kiko-red" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/KikoRedsea1.jpg" data-gallery="gallery-kiko-red" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
-            <!-- Portfolio Item 13 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding" style="cursor: pointer;">
-              <img src="/assets/img/masonry-portfolio/Kiko.JPG" class="img-fluid" alt="">
-              <div class="portfolio-info">
+            <!-- Portfolio Item 12 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/KikoRiyadh1.JPG", "/assets/img/masonry-portfolio/KikoRiyadh2.JPG", "/assets/img/masonry-portfolio/KikoRiyadh3.JPG"]'>
+              
+              <img src="/assets/img/masonry-portfolio/KikoRiyadh1.JPG" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
                 <h4>KIKO MILANO</h4>
                 <p>RIYADH GALLERY</p>
-                <a href="/assets/img/masonry-portfolio/Kiko.JPG" 
-                  data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
+                <a href="/assets/img/masonry-portfolio/KikoRiyadh2.JPG" data-gallery="gallery-kiko-gallery" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/KikoRiyadh3.JPG" data-gallery="gallery-kiko-gallery" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/KikoRiyadh2.JPG" data-gallery="gallery-kiko-gallery" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
-            <!-- Portfolio Item 14 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app" style="cursor: pointer;">
-              <img src="/assets/img/masonry-portfolio/sunglass.jpeg" class="img-fluid" alt="SUN GLASS HUT">
-              <div class="portfolio-info">
+            <!-- Portfolio Item 13 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/SunglassPano1.JPG", "/assets/img/masonry-portfolio/SunglassPano2.JPG", "/assets/img/masonry-portfolio/SunglassPano3.JPG"]'>
+              
+              <img src="/assets/img/masonry-portfolio/SunglassPano1.JPG" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
                 <h4>SUN GLASS HUT</h4>
                 <p>PANORAMA MALL RIYADH</p>
-                <a href="/assets/img/masonry-portfolio/sunglass.jpeg" 
-                  data-gallery="portfolio-gallery-app" class="glightbox preview-link">
-                  <i class="bi bi-zoom-in"></i>
+                <a href="/assets/img/masonry-portfolio/SunglassPano2.JPG" data-gallery="gallery-sunglass-panorama" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
                 </a>
+                <a href="/assets/img/masonry-portfolio/SunglassPano3.JPG" data-gallery="gallery-sunglass-panorama" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/SunglassPano4.JPG" data-gallery="gallery-sunglass-panorama" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
-            <!-- Portfolio Item 15 -->
-            <div style="cursor: pointer;" class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="/assets/img/masonry-portfolio/alhussaini.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
+            <!-- Portfolio Item 14 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/AlhissanJizan1.png", "/assets/img/masonry-portfolio/AlhissanJizan2.jpeg", "/assets/img/masonry-portfolio/AlhissanJizan3.jpeg"]'>
+              
+              <img src="/assets/img/masonry-portfolio/AlhissanJizan1.png" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
                 <h4>AL HUSSAINI</h4>
                 <p>KADI MALL JIZAN</p>
-                <a href="/assets/img/masonry-portfolio/alhussaini.png" 
-                  data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
+                <a href="/assets/img/masonry-portfolio/AlhissanJizan1.png" data-gallery="gallery-alhussaini-kadi" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/AlhissanJizan2.jpeg" data-gallery="gallery-alhussaini-kadi" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/AlhissanJizan3.jpeg" data-gallery="gallery-alhussaini-kadi" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
-            <div style="cursor: pointer;" class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="/assets/img/masonry-portfolio//Gissah.jpeg" class="img-fluid" alt="">
-              <div class="portfolio-info">
+            <!-- Portfolio Item 15 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/Gissah2.jpeg", "/assets/img/masonry-portfolio/Gissah3.png", "/assets/img/masonry-portfolio/Gissah.jpeg"]'>
+              
+              <img src="/assets/img/masonry-portfolio/Gissah3.png" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
                 <h4>GISSAH PERFUMES</h4>
                 <p>AL HASA MALL</p>
-                <a href="/assets/img/masonry-portfolio//Gissah.jpeg"
-                  data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
+                <a href="/assets/img/masonry-portfolio/Gissah.jpeg" data-gallery="gallery-gissah" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/Gissah2.jpeg" data-gallery="gallery-gissah" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/Gissah3.png" data-gallery="gallery-gissah" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
-            <div style="cursor: pointer;" class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="/assets/img/masonry-portfolio/KIKOLAV.jpeg" class="img-fluid" alt="">
-              <div class="portfolio-info">
+            <!-- Portfolio Item 16 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/KikoRedsea1.jpg", "/assets/img/masonry-portfolio/KikoRedsea2.jpg", "/assets/img/masonry-portfolio/KikoRedsea3.jpg"]'>
+              
+              <img src="/assets/img/masonry-portfolio/KikoRedsea1.jpg" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
                 <h4>KIKO MILANO</h4>
                 <p>VILLAGIO MALL RIYADH</p>
-                <a href="/assets/img/masonry-portfolio/KIKOLAV.jpeg" title="Branding 2" data-gallery="portfolio-gallery-branding"
-                  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>a>
+                <a href="/assets/img/masonry-portfolio/KikoRedsea1.jpg" data-gallery="gallery-kiko-villagio" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/KikoRedsea2.jpg" data-gallery="gallery-kiko-villagio" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/KikoRedsea3.jpg" data-gallery="gallery-kiko-villagio" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
+            <!-- Portfolio Item 17 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/601.jpeg", "/assets/img/masonry-portfolio/602.jpeg", "/assets/img/masonry-portfolio/603.jpeg"]'>
+              
+              <img src="/assets/img/masonry-portfolio/60Sec.jpeg" class="img-fluid main-img fade-img" alt="">
 
-            <div style="cursor: pointer;" class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="/assets/img/masonry-portfolio/60Sec.jpeg" class="img-fluid" alt="">
-              <div class="portfolio-info">
+              <div class="portfolio-info" style="cursor: pointer;">
                 <h4>60 SEC</h4>
                 <p>AMWAH MALL AKHOBAR</p>
-                <a href="/assets/img/masonry-portfolio/60Sec.jpeg"
-                  data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
+                <a href="/assets/img/masonry-portfolio/601.jpeg" data-gallery="gallery-60sec" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/602.jpeg" data-gallery="gallery-60sec" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/603.jpeg" data-gallery="gallery-60sec" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
-            <div style="cursor: pointer;" class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="/assets/img/masonry-portfolio/IntimissmiPark.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
+            <!-- Portfolio Item 18 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/Intimissimi1.JPG", "/assets/img/masonry-portfolio/Intimissimi2.JPG", "/assets/img/masonry-portfolio/Intimissimi3.JPG"]'>
+              
+              <img src="/assets/img/masonry-portfolio/IntimissmiPark.jpg" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
                 <h4>INTIMISSMI</h4>
                 <p>PARK AVENUE</p>
-                <a href="/assets/img/masonry-portfolio/IntimissmiPark.jpg" 
-                  data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
+                <a href="/assets/img/masonry-portfolio/Intimissimi1.JPG" data-gallery="gallery-intimissmi-park" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/Intimissimi2.JPG" data-gallery="gallery-intimissmi-park" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/Intimissimi3.JPG" data-gallery="gallery-intimissmi-park" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
-            <div style="cursor: pointer;" class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="/assets/img/masonry-portfolio/KIKOKING.jpeg" class="img-fluid" alt="">
-              <div class="portfolio-info">
+            <!-- Portfolio Item 19 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/KikoKingdom1.JPG", "/assets/img/masonry-portfolio/KikoKingdom2.JPG", "/assets/img/masonry-portfolio/KikoKingdom3.JPG"]'>
+              
+              <img src="/assets/img/masonry-portfolio/KIKOKING.jpeg" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
                 <h4>KIKO MILANO</h4>
                 <p>KINGDOM CENTER RIYADH</p>
-                <a href="/assets/img/masonry-portfolio/KIKOKING.jpeg" 
-                  data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
+                <a href="/assets/img/masonry-portfolio/KikoKingdom1.JPG" data-gallery="gallery-kiko-kingdom" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/KikoKingdom2.JPG" data-gallery="gallery-kiko-kingdom" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/KikoKingdom3.JPG" data-gallery="gallery-kiko-kingdom" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
-            <div style="cursor: pointer;" class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="/assets/img/masonry-portfolio/GIO1.jpeg" class="img-fluid" alt="">
-              <div class="portfolio-info">
+            <!-- Portfolio Item 20 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/GIO1.jpeg", "/assets/img/masonry-portfolio/GIO2.jpeg", "/assets/img/masonry-portfolio/GIO3.jpeg"]'>
+              
+              <img src="/assets/img/masonry-portfolio/GIO1.jpeg" class="img-fluid main-img fade-img" alt="">
+
+              <div class="portfolio-info" style="cursor: pointer;">
                 <h4>GIORDANO</h4>
                 <p>VILLAGIO MALL RIYADH</p>
-                <a href="/assets/img/masonry-portfolio/GIO1.jpeg" data-gallery="portfolio-gallery-branding"
-                  class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="/assets/img/masonry-portfolio/GIO2.jpeg" data-gallery="gallery-giordano" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/GIO3.jpeg" data-gallery="gallery-giordano" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/GIO4.jpeg" data-gallery="gallery-giordano" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
+            <!-- Portfolio Item 21 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product image-hover-slider"
+              data-images='["/assets/img/masonry-portfolio/BFL2.jpeg", "/assets/img/masonry-portfolio/BFL3.jpg", "/assets/img/masonry-portfolio/BFL4.jpg"]'>
+              
+              <img src="/assets/img/masonry-portfolio/BFL4.jpg" class="img-fluid main-img fade-img" alt="">
 
-            <div style="cursor: pointer;" class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="/assets/img/masonry-portfolio//BFL1.jpeg" class="img-fluid" alt="">
-              <div class="portfolio-info">
+              <div class="portfolio-info" style="cursor: pointer;">
                 <h4>BRAND FOR LESS</h4>
                 <p>PARK AVENUE MALL RIYADH</p>
-                <a href="/assets/img/masonry-portfolio//BFL1.jpeg" 
-                  data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
+                <a href="/assets/img/masonry-portfolio/BFL2.jpeg" data-gallery="gallery-brand-for-less" class="glightbox preview-link">
+                 <i class="bi bi-arrow-up-right"></i>
+                </a>
+                <a href="/assets/img/masonry-portfolio/BFL3.jpg" data-gallery="gallery-brand-for-less" class="glightbox d-none"></a>
+                <a href="/assets/img/masonry-portfolio/BFL4.jpg" data-gallery="gallery-brand-for-less" class="glightbox d-none"></a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div>
 
           </div><!-- End Portfolio Container -->
         </div>

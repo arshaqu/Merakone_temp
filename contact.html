@@ -38,8 +38,8 @@
 
 <body class="contact-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container position-relative d-flex align-items-center">
+ <header id="header" class="header d-flex align-items-center sticky-top">
+  <div class="container position-relative d-flex align-items-center">
 
        <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
@@ -49,22 +49,24 @@
 
         <nav  id="navmenu" class="navmenu">
 
-          <script>
+<script>
   let lastScrollTop = 0;
   const header = document.getElementById("header");
 
   window.addEventListener("scroll", function () {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (currentScroll > lastScrollTop) {
-      // Scrolling down
+    if (currentScroll > lastScrollTop && currentScroll > 100) {
+      // Scrolling down – hide header
       header.classList.add("hide-header");
-    } else {
-      // Scrolling up
+      header.classList.remove("header-blur");
+    } else if (currentScroll < lastScrollTop) {
+      // Scrolling up – show header with black background
       header.classList.remove("hide-header");
+      header.classList.add("header-blur");
     }
 
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile or negative scrolling
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
 </script>
 

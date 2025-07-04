@@ -42,7 +42,7 @@
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
+ <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
@@ -85,14 +85,14 @@
 </style>
 
         <ul >
-          <li class=""><a href="/index.html" class="active"><span>HOME</span> <i class="bi  "></i></a>
-          <li><a  href="/about/about.html">ABOUT US </a>
+          <li  class=""><a href="/index.html" class="active"><span>HOME</span> <i class="bi  "></i></a>
+          <li><a style="color: #555;" href="/about/about.html">ABOUT US </a>
            
           </li>
-          <li><a href="/services.html">SERVICE</a></li>
-          <li><a href="/clients.html">CLIENTS</a></li>
-          <li><a href="/blog.html">PROJECTS</a></li>
-          <li><a href="/contact.html">CONTACT US</a></li>
+          <li><a style="color: #555;" href="/services.html">SERVICE</a></li>
+          <li><a style="color: #555;" href="/clients.html">CLIENTS</a></li>
+          <li><a style="color: #555;" href="/blog.html">PROJECTS</a></li>
+          <li><a style="color: #555;" href="/contact.html">CONTACT US</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -107,24 +107,30 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <script>
+<script>
   let lastScrollTop = 0;
   const header = document.getElementById("header");
 
   window.addEventListener("scroll", function () {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (currentScroll > lastScrollTop) {
-      // Scrolling down
+    if (currentScroll > lastScrollTop && currentScroll > 100) {
+      // Scrolling down – hide header
       header.classList.add("hide-header");
-    } else {
-      // Scrolling up
+      header.classList.remove("header-blur");
+    } else if (currentScroll < lastScrollTop) {
+      // Scrolling up – show header with black background
       header.classList.remove("hide-header");
+      header.classList.add("header-blur");
     }
 
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile or negative scrolling
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
 </script>
+
+
+
+
 
       <div style="margin-top: -78px;  height: 100vh;" id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
@@ -243,36 +249,42 @@ our craftsmanship</h2>
 
     <div class="home-service-grid">
       <!-- Card 1 -->
-      <div class="home-service-card">
-        <img src="/assets/img/service/service3.jpg" alt="Turnkey Fit-Out">
-        <div class="overlay">
-          <h3 class="montserrat">TURNKEY FIT-OUT</h3>
-        </div>
-      </div>
+   
+
+        <div class="service-card">
+    <img src="/assets/img/service/service3.jpg" alt="Turnkey Fit-Out">
+    <div class="service-content">
+      <div style="color: white; font-size: xx-large;" class="service-title montserrat">TURNKEY FIT-OUT</div>
+    
+    </div>
+  </div>
+
+      <div class="service-card">
+    <img src="/assets/img/service/service4.jpg" alt="Turnkey Fit-Out">
+    <div class="service-content">
+      <div style="color: white; font-size: xx-large;" class="service-title montserrat">CUSTOME FURNITURE</div>
+    
+    </div>
+  </div>    <div class="service-card">
+    <img src="/assets/img/service/service2.jpg" alt="Turnkey Fit-Out">
+    <div class="service-content">
+      <div style="color: white; font-size: xx-large;" class="service-title montserrat">OFFICE DESIGN</div>
+    
+    </div>
+  </div>    <div class="service-card">
+    <img src="/assets/img/service/service1.png" alt="Turnkey Fit-Out">
+    <div class="service-content">
+      <div style="color: white; font-size: xx-large;" class="service-title montserrat">POST-OPENING SUPPORT</div>
+    
+    </div>
+  </div>
 
       <!-- Card 2 -->
-      <div class="home-service-card">
-        <img src="/assets/img/service/service4.jpg" alt="Custom Furniture">
-        <div class="overlay">
-          <h3 class="montserrat">CUSTOM FURNITURE</h3>
-        </div>
-      </div>
-
+      
       <!-- Card 3 -->
-      <div class="home-service-card">
-        <img src="/assets/img/service/service2.jpg" alt="Office Design">
-        <div class="overlay">
-          <h3 class="montserrat">OFFICE DESIGN</h3>
-        </div>
-      </div>
-
+ 
       <!-- Card 4 -->
-      <div class="home-service-card">
-        <img src="/assets/img/service/service1.png" alt="Post Support">
-        <div class="overlay">
-          <h3 class="montserrat">POST-OPENING SUPPORT</h3>
-        </div>
-      </div>
+      
     </div>
 
        <div class="button-container p-5">
@@ -314,8 +326,7 @@ our craftsmanship</h2>
               <div class="portfolio-info">
                 <h4>PAUL LE CAFE</h4>
                 <p>RIYADH GALLERY MALL</p>
-                <a href="/assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+               
               </div>
             </div><!-- End Portfolio Item filter app -->
 
@@ -324,8 +335,7 @@ our craftsmanship</h2>
               <div class="portfolio-info">
                 <h4>RESERVED</h4>
                 <p>GALLERY MALL , RIYADH</p>
-                <a href="/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+             
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -334,8 +344,7 @@ our craftsmanship</h2>
               <div class="portfolio-info">
                 <h4>SUN GLASS HUT</h4>
                 <p>ANDALUS MALL , JEDDAH</p>
-                <a href="/assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+               
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -344,8 +353,7 @@ our craftsmanship</h2>
               <div class="portfolio-info">
                 <h4>DAISO JAPAN</h4>
                 <p>SALAM MALL , JEDDAH</p>
-                <a href="/assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+             
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -354,8 +362,7 @@ our craftsmanship</h2>
               <div class="portfolio-info">
                 <h4>JAWAHARA</h4>
                 <p>JWELLERY PARK AVENUE PARK</p>
-                <a href="/assets/img/masonry-portfolio/Paul5.png" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -364,8 +371,7 @@ our craftsmanship</h2>
               <div class="portfolio-info">
                 <h4>CALZEDONIA</h4>
                 <p>THE VILLAGE MALL</p>
-                <a href="/assets/img/masonry-portfolio/]" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -374,8 +380,7 @@ our craftsmanship</h2>
               <div class="portfolio-info">
                 <h4>VEROMODA</h4>
                 <p>AL NAKHEEL MALL , RIYADH</p>
-                <a href="/assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+               
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -384,8 +389,7 @@ our craftsmanship</h2>
               <div class="portfolio-info">
                 <h4>PAULE LE CAFE</h4>
                 <p>RIYADH GALLERY MALL</p>
-                <a href="/assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+               
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -395,8 +399,7 @@ our craftsmanship</h2>
               <div class="portfolio-info">
                 <h4>KIKO MILANO</h4>
                 <p>RED SEA MALL , JEDDAH</p>
-                <a href="/assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -405,8 +408,7 @@ our craftsmanship</h2>
               <div class="portfolio-info">
                 <h4>KIKO MILANO</h4>
                 <p>RIYADH GALLERY</p>
-                <a href="/assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -415,8 +417,7 @@ our craftsmanship</h2>
               <div class="portfolio-info">
                 <h4>AL HUSSAINI</h4>
                 <p>KADI MALL JIZAN</p>
-                <a href="/assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -425,8 +426,7 @@ our craftsmanship</h2>
               <div class="portfolio-info">
                 <h4>AL HUSSAINI</h4>
                 <p>KADI MALL JIZAN</p>
-                <a href="/assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+             
               </div>
             </div><!-- End Portfolio Item -->
 
