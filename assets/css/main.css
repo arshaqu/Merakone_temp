@@ -260,12 +260,12 @@ h6 {
 
   @media (max-width: 768px) {
     #header {
-      padding: 5px 10px;
+      padding: 15px 10px;
       height: auto;
     }
 
     #header .logo img {
-      max-height: 40px;
+      max-height: 34px;
     }
 
     .navmenu {
@@ -437,6 +437,7 @@ h6 {
   text-align: justify;
   margin-bottom: 1rem;
   font-size: 1rem;
+  color: black;
   line-height: 1.7;
 }
 
@@ -695,7 +696,6 @@ h6 {
 
 
   .hero-section {
-    border-radius: 10px;
     position: relative;
     width: auto;
     height: 300px;
@@ -705,7 +705,7 @@ h6 {
     justify-content: center;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    margin: 20px 20px;
+    margin: 20px 0px;
   }
 
   .hero-overlay {
@@ -766,7 +766,8 @@ h6 {
         }
 
         .modern-features-section {
-            background: linear-gradient(135deg, hsla(249, 80%, 23%, 0.921) 0%, #000a3dec 100%);
+            background: linear-gradient(135deg, #202964 0%, #000a3dec 100%);
+
             padding: 100px 0;
             position: relative;
             overflow: hidden;
@@ -819,7 +820,7 @@ h6 {
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.104) 0%, rgba(255,255,255,0.05) 100%);
             opacity: 0;
             transition: opacity 0.3s ease;
             pointer-events: none;
@@ -985,10 +986,11 @@ h6 {
         @media (max-width: 768px) {
             .section-title h2 {
                 font-size: 2.5rem;
+                margin-bottom: 55px !important;
             }
             
             .modern-feature-card {
-                margin-bottom: 30px;
+                margin-bottom: 10px;
             }
             
             .card-image-wrapper {
@@ -1154,13 +1156,13 @@ h6 {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
-  font-weight: 600;
   color: #fff7f7;
   background: linear-gradient(to right, #222, #555);
   border-radius: 10px;
   text-decoration: none;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 14px;
 }
 
 .explore-animated-link::after {
@@ -1178,7 +1180,6 @@ h6 {
 .explore-animated-link:hover {
   transform: translateY(-3px);
   color: #b8b8b8;
-
   box-shadow: 0 8px 20px rgba(255, 254, 254, 0.4);
 }
 
@@ -1473,7 +1474,7 @@ h6 {
 
 .footer .footer-top {
   padding-top: 50px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 0px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
 .footer .footer-about .logo {
