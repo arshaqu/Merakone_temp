@@ -91,7 +91,7 @@
           </li>
           <li><a style="color: #555;" href="/services.html">SERVICE</a></li>
           <li><a style="color: #555;" href="/clients.html">CLIENTS</a></li>
-          <li><a style="color: #555;" href="/blog.html">PROJECTS</a></li>
+          <li><a style="color: #555;" href="/projects.html">PROJECTS</a></li>
           <li><a style="color: #555;" href="/contact.html">CONTACT US</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -106,7 +106,6 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
-
 <script>
   let lastScrollTop = 0;
   const header = document.getElementById("header");
@@ -114,12 +113,16 @@
   window.addEventListener("scroll", function () {
     const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (currentScroll > lastScrollTop && currentScroll > 100) {
+    if (currentScroll <= 50) {
+      // At the top – remove both classes
+      header.classList.remove("hide-header");
+      header.classList.remove("header-blur");
+    } else if (currentScroll > lastScrollTop && currentScroll > 100) {
       // Scrolling down – hide header
       header.classList.add("hide-header");
       header.classList.remove("header-blur");
     } else if (currentScroll < lastScrollTop) {
-      // Scrolling up – show header with black background
+      // Scrolling up – show header with blur
       header.classList.remove("hide-header");
       header.classList.add("header-blur");
     }
@@ -132,6 +135,7 @@
 
 
 
+
       <div style="margin-top: -78px;  height: 100vh;" id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
         <div class="carousel-item active">
@@ -139,8 +143,8 @@
           <div class="container">
             <p class="montserrat" style="letter-spacing: 2px;">INTERIOR DESIGN AND ARCHITECTURE </p>
           
-            <h2 style="font-weight: bold;" class="montserrat">Where your vision meets
-our craftsmanship</h2>
+            <h2 style="font-weight: bold;" class="montserrat">WHERE VISION MEETS
+OUR CRAFTSMANSHIP</h2>
             <p class="montserrat" style="letter-spacing: 2px;">KINGDOM OF SAUDI ARABIA | BAHRAIN</p>
           
           </div>
@@ -417,7 +421,7 @@ our craftsmanship</h2>
       </section><!-- /Portfolio Section -->
     </div>
     <div class="button-container">
-  <a style="border-radius: 10px; margin-bottom: 4px; margin-top: -35px !important" href="/blog.html" class="btn-get-started montserrat ">EXPLORE MORE</a>
+  <a style="border-radius: 10px; margin-bottom: 4px; margin-top: -35px !important" href="/projects.html" class="btn-get-started montserrat ">EXPLORE MORE</a>
 </div>
       
     <!-- Clients Section -->
@@ -471,6 +475,9 @@ our craftsmanship</h2>
     <img src="/assets/img/clients/client-3.png" alt="" />
     <img src="/assets/img/clients/client-4.png" alt="" />
      <img src="/assets/img/clients/Clients15.png" alt="" />
+     <img src="/assets/img/clients/Clients16.png" alt="" />
+    <img src="/assets/img/clients/Clients11.png" alt="" />
+
 
     
   </div>
@@ -501,6 +508,9 @@ our craftsmanship</h2>
     <img src="/assets/img/clients//Brand19.png" alt="" />
     <img src="/assets/img/clients//Brand20.png" alt="" />
     <img src="/assets/img/clients//Brand21.png" alt="" />
+    <img src="/assets/img/clients//Brand22.png" alt="" />
+    <img src="/assets/img/clients//Brand23.png" alt="" />
+
 
     
 
@@ -553,7 +563,7 @@ our craftsmanship</h2>
           <li><a href="/about/about.html">ABOUT US </a></li>
           <li><a href="/services.html">SERVICES</a></li>
           <li><a href="/clients.html">CLIENTS</a></li>
-          <li><a class="active" href="/blog.html">PROJECTS</a></li>
+          <li><a  href="/projects.html">PROJECTS</a></li>
           <li><a href="/contact.html">CONTACT</a></li>
         </ul>
         </div>
