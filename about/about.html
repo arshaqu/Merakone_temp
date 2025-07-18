@@ -113,12 +113,14 @@
     <div class="row g-5 align-items-center flex-lg-row flex-column-reverse">
 
       <!-- Image -->
-      <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
-        <div class="about-img-wrapper position-relative rounded-4 overflow-hidden shadow-lg">
-          <img src="/assets/img/about.jpg" alt="About Us" class="img-fluid w-100 h-100 about-img-overlay">
-          <div class="black-overlay"></div>
-        </div>
-      </div>
+<!-- This hides the image wrapper on screens smaller than lg (i.e., mobile and tablet) -->
+<div class="col-lg-6 d-none d-lg-block" data-aos="zoom-in" data-aos-delay="100">
+  <div class="about-img-wrapper position-relative rounded-4 overflow-hidden shadow-lg">
+    <img src="/assets/img/about.jpg" alt="About Us" class="img-fluid w-100 h-100 about-img-overlay">
+    <div class="black-overlay"></div>
+  </div>
+</div>
+
 
       <!-- Text Content -->
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
@@ -158,7 +160,7 @@
   <div class="container">
 
     <!-- Our Story Block -->
-    <div class="row align-items-center g-5 mb-5 flex-column-reverse flex-lg-row">
+    <div style="margin-top: -100px;" class="row align-items-center g-5 mb-5 flex-column-reverse flex-lg-row">
       <div class="col-lg-6" data-aos="fade-right">
         <div class="story-text bg-light p-4 p-md-5 rounded-4 shadow-sm">
           <h2 style="color: gray;" class="fw-bold mb-3 ">Our Story</h2>
